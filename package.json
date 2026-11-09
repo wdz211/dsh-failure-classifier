@@ -1,0 +1,37 @@
+{
+  "name": "dsh-failure-classifier",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Observes agent request errors and classifies LLM failures into retry / pause / stop. Observation only, pass-through.",
+  "license": "MIT",
+  "author": "wdz211",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wdz211/dsh-failure-classifier.git"
+  },
+  "homepage": "https://github.com/wdz211/dsh-failure-classifier#readme",
+  "bugs": {
+    "url": "https://github.com/wdz211/dsh-failure-classifier/issues"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "test",
+    "cordis.patch.yml",
+    "README.md",
+    "CONTRACT.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/selftest.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

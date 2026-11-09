@@ -1,0 +1,19 @@
+# Bundle patch: top-level YAML array (required by the DSH Loader).
+#
+# `id` is the config-line identity; `name` is the package the Loader imports.
+# Phase 1 defaults deliberately keep every observable side effect local:
+#   - overrides: {}        -> the built-in classification table in lib/index.js
+#   - sessionEvent: auto   -> write the session event ONLY when this build's
+#                             session vocabulary knows our event type; otherwise
+#                             fall back to the JSONL journal (see CONTRACT.md §4)
+#   - journal.enabled      -> the durable observation sink of phase 1
+#   - journal.dir: ''      -> resolved at runtime from $DSH_HOME, else ~/.dsh
+- insert:
+    - id: failure-classifier
+      name: '@local/dsh-failure-classifier'
+      config:
+        overrides: {}
+        sessionEvent: auto
+        journal:
+          enabled: true
+          dir: ''
